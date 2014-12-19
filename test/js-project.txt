@@ -1,0 +1,8 @@
+roots
+  src
+  ../src
+  /deme/dmJs/lib/dmBasic/src
+namespaces
+  main
+target
+  target/index.js
