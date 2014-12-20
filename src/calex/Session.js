@@ -61,11 +61,13 @@ calex.Session = function (maker, storeName, group, historic, exercise) {
 
   /** @return {!calex.Historic} */
   this.historic = function () {
+    /*jslint closure: true */
     return /** @private @type{!calex.Historic} */ (historic);
   };
 
   /** @return {!calex.Exercise} */
   this.exercise = function () {
+    /*jslint closure: true */
     return /** @private @type{!calex.Exercise} */ (exercise);
   };
 

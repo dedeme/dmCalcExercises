@@ -1,7 +1,7 @@
 roots
   src
   ../src
-  /deme/dmJs/lib/dmBasic/src
+  /deme/dmJs/lib/dmBasic/src/
 namespaces
   main
 target
