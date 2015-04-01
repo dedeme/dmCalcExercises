@@ -68,7 +68,7 @@ goog.require("calex.MakerConstants");
     , ["si2", 2]
     ]);
 
-    ss = new calex.Session(maker, "test", group, historic, exercise);
+    ss = new calex.Session(maker, "", "test", group, historic, exercise);
 
     t.yes(group.eq(ss.group()));
     t.yes(new calex.Historic([]).eq(ss.historic()));
@@ -82,7 +82,7 @@ goog.require("calex.MakerConstants");
     ]);
     exercise = ss.exercise();
 
-    ss = new calex.Session(maker, "test", group, historic, exercise);
+    ss = new calex.Session(maker, "", "test", group, historic, exercise);
 
     t.yes(group.eq(ss.group()));
     t.yes(historic.eq(ss.historic()));

@@ -22,11 +22,13 @@ goog.provide("main");
 
 goog.require('packsTest');
 goog.require('sessionTest');
+goog.require('utilTest');
 
 main = function () {
   'use strict';
   packsTest.run();
   sessionTest.run();
+  utilTest.run();
 };
 
 goog.exportSymbol('main', main);

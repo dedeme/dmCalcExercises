@@ -31,12 +31,13 @@ goog.require("dmjs.Dec");
  * @constructor
  * @param {!function (!string, !number):!calex.Exercise} maker Parameters of
  *  function are: 'exercise text' and 'exercise ponderation'.
+ * @param {!string} user
  * @param {!string} storeName
  * @param {!calex.Group} group
  * @param {!calex.Historic=} historic
  * @param {!calex.Exercise=} exercise
  */
-calex.Session = function (maker, storeName, group, historic, exercise) {
+calex.Session = function (maker, user, storeName, group, historic, exercise) {
   "use strict";
 
   var
@@ -48,6 +49,11 @@ calex.Session = function (maker, storeName, group, historic, exercise) {
     groupElement = group.next();
     exercise = maker(groupElement.exercise(), groupElement.ponderation());
   }
+
+  /** @return {!string} */
+  this.user = function () {
+    return user;
+  };
 
   /** @return {!string} */
   this.storeName = function () {
@@ -186,6 +192,7 @@ calex.Session = function (maker, storeName, group, historic, exercise) {
   /** @return {!string} */
   this.serialize = function () {
     return JSON.stringify([
+      user,
       storeName,
       group.serialize(),
       historic.serialize(),
@@ -211,8 +218,9 @@ calex.Session.restore = function (maker, serial) {
   return new calex.Session(
     maker,
     rs[0],
-    calex.Group.restore(rs[1]),
-    calex.Historic.restore(rs[2]),
-    calex.Exercise.restore(rs[3])
+    rs[1],
+    calex.Group.restore(rs[2]),
+    calex.Historic.restore(rs[3]),
+    calex.Exercise.restore(rs[4])
   );
 };
