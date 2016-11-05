@@ -123,7 +123,7 @@ goog.require("dmjs.Date");
       k,
       msg;
 
-    if (key < 30) {
+    if (key.length < 30) {
       return false;
     }
     k = key.substring(0, 15);
@@ -148,7 +148,7 @@ goog.require("dmjs.Date");
       k,
       r;
 
-    if (key < 30) {
+    if (key.length < 30) {
       return null;
     }
     k = key.substring(0, 15);
